@@ -1,29 +1,40 @@
-# Problem 10: Busiest Bus Row
+# Problem 6: Class Attendance Tracker
 
-A Java solution that finds the row with the largest sum in a 2D grid. If multiple rows have the same sum, it returns the row with the smallest index.
+This Java program counts the number of days a student was present and finds the longest consecutive streak of attendance.
 
-## Example
+## Sample 1
 
 Input:
 ```text
-[[2, 0, 1],
- [3, 3, 1],
- [1, 1, 1]]
+[1, 1, 0, 1, 1, 1, 0, 1]
 ```
 
 Output:
 ```text
-Row 1, Total 7
+Present: 6, Longest streak: 3
+```
+
+## Sample 2
+
+Input:
+```text
+[0, 0, 0]
+```
+
+Output:
+```text
+Present: 0, Longest streak: 0
 ```
 
 ## Complexity
 
-- **Time:** `O(r * c)`, where `r` is the number of rows and `c` is the number of columns.
-- **Auxiliary space:** `O(1)`; only a fixed number of variables are used. The returned two-element array is output space, also `O(1)`.
+- **Time:** `O(n)`, because the array is traversed once.
+- **Auxiliary space:** `O(1)`, because only a fixed number of variables are used.
+- **Single pass:** Yes. Both the number of present days and the longest streak are calculated in the same loop.
 
 ## Compile and run
 
 ```bash
-javac BusiestBusRow.java
-java BusiestBusRow
+javac ClassAttendanceTracker.java
+java ClassAttendanceTracker
 ```
