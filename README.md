@@ -1,40 +1,25 @@
-# Problem 6: Class Attendance Tracker
+# Problem 8: Duty Roster Rotation
 
-This Java program counts the number of days a student was present and finds the longest consecutive streak of attendance.
+This Java solution rotates a roster to the right by `k` positions. Names that pass the end wrap around to the beginning.
 
-## Sample 1
+## Sample output
 
-Input:
 ```text
-[1, 1, 0, 1, 1, 1, 0, 1]
+[D, E, A, B, C]
+[D, E, A, B, C]
 ```
 
-Output:
-```text
-Present: 6, Longest streak: 3
-```
-
-## Sample 2
-
-Input:
-```text
-[0, 0, 0]
-```
-
-Output:
-```text
-Present: 0, Longest streak: 0
-```
+The second example uses `k = 7`. Since there are 5 names, `7 % 5 = 2`, so the result is the same as rotating right by 2 positions.
 
 ## Complexity
 
-- **Time:** `O(n)`, because the array is traversed once.
-- **Auxiliary space:** `O(1)`, because only a fixed number of variables are used.
-- **Single pass:** Yes. Both the number of present days and the longest streak are calculated in the same loop.
+- **Time:** `O(n)`, because each name is moved once.
+- **Auxiliary space:** `O(n)`, because a new array stores the rotated roster.
+- **Why not rotate one place at a time?** Repeating a one-place rotation `k` times can take `O(n * k)` time. When `k` is very large, this does unnecessary work. Using `k % n` reduces the shift to fewer than `n` positions.
 
 ## Compile and run
 
 ```bash
-javac ClassAttendanceTracker.java
-java ClassAttendanceTracker
+javac DutyRosterRotation.java
+java DutyRosterRotation
 ```
