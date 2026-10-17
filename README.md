@@ -1,33 +1,33 @@
-# Problem 4: Exam Score Band Counter
+# Problem 7: Second-Best Score
 
-Counts how many values in a sorted array fall within the inclusive range `[low, high]`.
+Find the second-highest **distinct** score in an array without sorting it. Return `-1` if no second-highest distinct score exists.
 
 ## Sample output
 
 ```text
-6
-0
+78
+-1
 ```
 
 ## Approach
 
-- `lowerBound` finds the first index whose score is greater than or equal to `low`.
-- `upperBound` finds the first index whose score is strictly greater than `high`.
-- Subtract the indices to count all scores in the band.
+Track two values while visiting each score once:
 
-The strict comparison matters because duplicate scores can appear at either edge. The lower bound must include every `low`, and the upper bound must move past every `high`.
+- `highest`: the highest score seen so far.
+- `second`: the second-highest distinct score seen so far.
+
+If a score is greater than `highest`, move the old `highest` to `second`. Otherwise, update `second` only if the score is less than `highest` and greater than `second`. This skips duplicates of the highest score.
 
 ## Complexity
 
 Let `n` be the number of scores.
 
-- **Linear scan:** `O(n)` time and `O(1)` auxiliary space.
-- **Binary-search solution:** `O(log n)` time per query and `O(1)` auxiliary space.
-- The solution uses two binary searches, so it does not scan all scores.
+- **One-pass solution:** `O(n)` time and `O(1)` auxiliary space.
+- **Sorting first:** typically `O(n log n)` time, plus the space required by the sorting approach. Sorting is unnecessary here because two variables are enough.
 
 ## Compile and run
 
 ```bash
-javac ExamScoreBandCounter.java
-java ExamScoreBandCounter
+javac SecondBestScore.java
+java SecondBestScore
 ```
